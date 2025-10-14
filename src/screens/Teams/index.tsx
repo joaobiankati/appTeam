@@ -1,14 +1,24 @@
-import { View, Text, StyleSheet, Image } from "react-native"
-
-import logoImg from "@assets/logo.png";
-
-import { Container, Title } from "./styles"
-
+import { Container, Content, HeaderCotainer } from "./styles"
+import { Header } from "@components/Header";
+import { Highlight } from "@components/Highlight";
+import { TeamCard } from "@components/TeamCard";
+ 
 export function Teams(){
     return(
         <Container>
-            <Title>Groups</Title>
-            <Image source={logoImg}/>
+            <HeaderCotainer>
+                <Header />
+
+                <Highlight 
+                title="Equipes"
+                subtitle="Preparem suas equipes"
+                /> 
+            </HeaderCotainer>
+
+            <Content>
+                <TeamCard />
+                <TeamCard />
+            </Content>
         </Container>
     )
 }
