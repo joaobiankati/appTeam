@@ -1,13 +1,19 @@
 import { Text } from "react-native";
 import { Container, Icon, Title } from "./styles";
 import {MaterialIcons} from "@expo/vector-icons"
+import { TouchableOpacityProps } from "react-native";
 
-export function TeamCard(){
+
+interface Props extends TouchableOpacityProps{
+    title: string;
+}
+
+export function TeamCard({ title, ...rest } : Props){
     return (
-        <Container>
+        <Container {...rest}>
             <Icon name="groups" />
 
-            <Title>Equipe 1</Title>
+            <Title>{title}</Title>
         </Container>
     )
 }

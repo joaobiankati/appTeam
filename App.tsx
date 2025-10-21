@@ -4,6 +4,8 @@ import theme from "@theme/index";
 import { Roboto_400Regular, Roboto_700Bold, useFonts } from "@expo-google-fonts/roboto";
 import { Loading } from "@components/Loading";
 import { StatusBar } from "react-native";
+import { NewTeam } from "@screens/NewTeam";
+import { AddMembers } from "@screens/AddMembers";
 
 export default function App(){
   const [fontsLoadead] = useFonts({Roboto_400Regular, Roboto_700Bold});
@@ -15,7 +17,7 @@ export default function App(){
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoadead ? <Teams /> : <Loading />}
+      {fontsLoadead ? <AddMembers /> : <Loading />}
     </ThemeProvider>
   )
 }
