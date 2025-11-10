@@ -16,3 +16,11 @@ export const Content = styled.View`
   justify-content: space-between;
   padding: 24px;
 `;
+
+export const InputContainer = styled.View`
+  flex-direction: row;
+`;
+
+export const ButtonIcon = styled.TouchableOpacity `
+  
+`;
