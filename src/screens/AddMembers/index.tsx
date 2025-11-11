@@ -1,12 +1,19 @@
+import { useState } from 'react';
+import { FlatList } from 'react-native';
+
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
 import { Input } from '@components/Input';
+import { ButtonIcon } from '@components/ButtonIcon';
+import { Tab } from '@components/Tab';
+import { Tag } from '@components/Tag';
 import { Button } from '@components/Button';
 
-import { Container, HeaderContainer, Content, InputContainer } from './styles';
-import { ButtonIcon } from '@components/ButtonIcon';
+import { Container, HeaderContainer, Content, InputContainer, Tabs } from './styles';
 
 export function AddMembers() {
+  const [tab, setTab] = useState('Titular');
+
   return (
     <Container>
       <HeaderContainer>
@@ -22,14 +29,31 @@ export function AddMembers() {
         <InputContainer>
           <Input
             style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
-            placeholder='Adicione uma equipe'
+            placeholder='Adicione um membro'
           />
 
-          <ButtonIcon 
-           style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-            icon='add-circle-outline' 
+          <ButtonIcon
+            style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+            icon='add-circle-outline'
           />
         </InputContainer>
+
+        <Tabs>
+          <FlatList
+            data={['Titular', 'Reserva']}
+            keyExtractor={item => item}
+            renderItem={({ item }) => (
+              <Tab
+                title={item}
+                isActive={item === tab}
+                onPress={() => setTab(item)}
+              />
+            )}
+            horizontal
+          />
+
+          <Tag text={0} />
+        </Tabs>
 
         <Button
           title='Deletar equipe'

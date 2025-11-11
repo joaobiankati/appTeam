@@ -24,3 +24,9 @@ export const InputContainer = styled.View`
 export const ButtonIcon = styled.TouchableOpacity `
   
 `;
+
+export const Tabs = styled.View`
+  margin: 32px 0;
+  flex-direction: row;
+  align-items: center;
+`;
